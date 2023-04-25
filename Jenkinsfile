@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Building docker image') {
             steps {
-                sh 'echo Building docker image'
+                sh ' echo Building docker image'
                 script {
                     buildDate = new Date()
                     image = docker.build("${registry}:$BUILD_NUMBER")
@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Registry-Push') {
             steps {
-                sh 'echo Registry-push'
+                sh ' echo Registry-push'
                 script {
                     docker.withRegistry('', registryCredentials) {
                         image.push()
